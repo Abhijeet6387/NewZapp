@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Newsitem from "./Newsitem";
+import Spinner from "./Spinner";
 
 export class News extends Component {
   // setting state using constructor
@@ -7,7 +8,7 @@ export class News extends Component {
     super();
     this.state = {
       articles: [],
-      loading: true,
+      loading: false,
       page: 1,
     };
   }
@@ -15,29 +16,35 @@ export class News extends Component {
   // fetch api takes a url and returns a promise
   // async await can be used to wait until the promise returned is resolved and return data
   async componentDidMount() {
-    let url =
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=1&pageSize=20";
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=1&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
+      loading: false,
     });
   }
 
   handleNextClick = async () => {
-    console.log("Next");
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
-    } else {
+    if (
+      !(
+        this.state.page + 1 >
+        Math.ceil(this.state.totalResults / this.props.pageSize)
+      )
+    ) {
       let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=${
         this.state.page + 1
-      }&pageSize=20`;
+      }&pageSize=${this.props.pageSize}`;
+      this.setState({ loading: true });
       let data = await fetch(url);
       let parsedData = await data.json();
 
       this.setState({
         page: this.state.page + 1,
         articles: parsedData.articles,
+        loading: false,
       });
     }
   };
@@ -45,13 +52,15 @@ export class News extends Component {
   handlePrevClick = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=${
       this.state.page - 1
-    }&pageSize=20`;
+    }&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
 
     this.setState({
       page: this.state.page - 1,
       articles: parsedData.articles,
+      loading: false,
     });
   };
 
@@ -59,23 +68,27 @@ export class News extends Component {
     return (
       <div className="container my-3">
         <h4 className="text-center">NewZapp - Top Headlines</h4>
+        {this.state.loading && <Spinner />}
         <div className="row">
           {/* to loop through articles */}
-          {this.state.articles.map((element) => {
-            return (
-              <div className="col-md-3" key={element.url}>
-                <Newsitem
-                  // .slice is used to restrict the length of title and description being displayed
-                  title={element.title ? element.title.slice(0, 45) : ""}
-                  description={
-                    element.description ? element.description.slice(0, 88) : ""
-                  }
-                  imageUrl={element.urlToImage}
-                  newsUrl={element.url}
-                />
-              </div>
-            );
-          })}
+          {!this.state.loading &&
+            this.state.articles.map((element) => {
+              return (
+                <div className="col-md-3" key={element.url}>
+                  <Newsitem
+                    // .slice is used to restrict the length of title and description being displayed
+                    title={element.title ? element.title.slice(0, 45) : ""}
+                    description={
+                      element.description
+                        ? element.description.slice(0, 88)
+                        : ""
+                    }
+                    imageUrl={element.urlToImage}
+                    newsUrl={element.url}
+                  />
+                </div>
+              );
+            })}
         </div>
         <div className="container d-flex justify-content-between">
           <button
@@ -91,7 +104,8 @@ export class News extends Component {
             type="button"
             onClick={this.handleNextClick}
             disabled={
-              this.state.page + 1 > Math.ceil(this.state.totalResults / 20)
+              this.state.page + 1 >
+              Math.ceil(this.state.totalResults / this.props.pageSize)
             }
           >
             Next &rarr;
