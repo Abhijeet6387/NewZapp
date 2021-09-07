@@ -58,7 +58,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h4>NewZapp - Top Headlines</h4>
+        <h4 className="text-center">NewZapp - Top Headlines</h4>
         <div className="row">
           {/* to loop through articles */}
           {this.state.articles.map((element) => {
@@ -90,6 +90,9 @@ export class News extends Component {
             className="btn btn-primary"
             type="button"
             onClick={this.handleNextClick}
+            disabled={
+              this.state.page + 1 > Math.ceil(this.state.totalResults / 20)
+            }
           >
             Next &rarr;
           </button>
