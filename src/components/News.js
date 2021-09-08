@@ -80,7 +80,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h4 className="text-center">NewZapp - Top Headlines</h4>
+        <h4 className="text-center" style={{margin:'35px'}}>NewZapp - Top Headlines</h4>
         {this.state.loading && <Spinner />}
         <div className="row">
           {/* to loop through articles */}
