@@ -12,7 +12,7 @@ export default class App extends Component {
       <div>
         <Navbar />
         {/* passing pageSize as props (country,apikey,all can be passed as props) */}
-        <News pageSize={10} />
+        <News pageSize={10} country="in" category="sports" />
       </div>
     );
   }
