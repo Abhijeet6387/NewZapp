@@ -7,7 +7,15 @@ export class Newsitem extends Component {
       this.props;
     return (
       <div className="my-3">
-        <div className="card" style={{ height: "30%", borderColor: "black" }}>
+        <div
+          className="card"
+          style={{
+            height: "30%",
+            // borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "black",
+          }}
+        >
           <img
             src={!imageUrl ? "unavailable.jpg" : imageUrl}
             className="card-img-top"
