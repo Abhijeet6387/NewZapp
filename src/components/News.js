@@ -1,22 +1,20 @@
 import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 export class News extends Component {
   // setting state using constructor
   static defaultProps = {
-    country: 'in',
+    country: "in",
     pageSize: 10,
-    category: 'general'
-  }
+    category: "general",
+  };
   static propTypes = {
     country: PropTypes.string,
     pageSize: PropTypes.number,
     category: PropTypes.string,
-
-  }
+  };
   constructor() {
     super();
     this.state = {
@@ -47,7 +45,11 @@ export class News extends Component {
         Math.ceil(this.state.totalResults / this.props.pageSize)
       )
     ) {
-      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=${
+      let url = `https://newsapi.org/v2/top-headlines?country=${
+        this.props.country
+      }&category=${
+        this.props.category
+      }&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
@@ -63,7 +65,11 @@ export class News extends Component {
   };
 
   handlePrevClick = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${
+      this.props.country
+    }&category=${
+      this.props.category
+    }&apiKey=5262dcace9d64898a8f2fe210a13eee7&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -80,7 +86,9 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h4 className="text-center" style={{margin:'35px'}}>NewZapp - Top Headlines</h4>
+        <h4 className="text-center" style={{ margin: "35px" }}>
+          NewZapp - Top Headlines
+        </h4>
         {this.state.loading && <Spinner />}
         <div className="row">
           {/* to loop through articles */}
@@ -105,7 +113,7 @@ export class News extends Component {
         </div>
         <div className="container d-flex justify-content-between">
           <button
-            className="btn btn-primary"
+            className="btn btn-dark"
             type="button"
             onClick={this.handlePrevClick}
             disabled={this.state.page <= 1}
@@ -113,7 +121,7 @@ export class News extends Component {
             &larr; Previous
           </button>
           <button
-            className="btn btn-primary"
+            className="btn btn-dark"
             type="button"
             onClick={this.handleNextClick}
             disabled={
