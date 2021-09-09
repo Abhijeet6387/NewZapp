@@ -98,14 +98,21 @@ export class News extends Component {
                 <div className="col-md-3" key={element.url}>
                   <Newsitem
                     // .slice is used to restrict the length of title and description being displayed
-                    title={element.title ? element.title.slice(0, 45) : ""}
+                    title={element.title ? element.title.slice(0, 48) : ""}
+                    // title={!element.title ? "" : element.title}
                     description={
                       element.description
-                        ? element.description.slice(0, 88)
+                        ? element.description.slice(0, 60)
                         : ""
                     }
+                    // description={
+                    //   !element.description ? "" : element.description
+                    // }
                     imageUrl={element.urlToImage}
                     newsUrl={element.url}
+                    author={element.author}
+                    date={element.publishedAt}
+                    source={element.source.name}
                   />
                 </div>
               );
