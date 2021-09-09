@@ -29,43 +29,44 @@ export class Navbar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/">
-                    Home
+                  <Link className="nav-link" aria-current="page" to="/">
+                    <span className="fa fa-home pl-1 pr-1"></span> Home
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/business">
-                    Business
+                    <span className="fa fa-briefcase pl-1 pr-1"></span> Business
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/entertainment">
-                    Entertainment
+                    <span className="fa fa-film pl-1 pr-1"></span> Entertainment
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/general">
+                    <span className="fa fa-newspaper-o pl-1 pr-1"></span>{" "}
                     General
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/health">
-                    Health
+                    <span className="fa fa-medkit pl-1 pr-1"></span> Health
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/science">
-                    Science
+                    <span className="fa fa-flask pl-1 pr-1"></span> Science
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/sports">
-                    Sports
+                    <span className="fa fa-futbol-o pl-1 pr-1"></span> Sports
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/technology">
-                    Technology
+                    <span className="fa fa-laptop pl-1 pr-1"></span> Technology
                   </Link>
                 </li>
               </ul>
