@@ -27,7 +27,7 @@ export class Navbar extends Component {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav" style={{ marginLeft: "auto" }}>
                 <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="/">
                     <span className="fa fa-home pl-1 pr-1"></span> Home
