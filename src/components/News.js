@@ -108,6 +108,7 @@ export class News extends Component {
           className="text-center"
           style={{
             margin: "30px",
+            textShadow: "2px 2px rgba(0,0,0,0.15)",
           }}
         >
           NewZapp - Top{" "}
