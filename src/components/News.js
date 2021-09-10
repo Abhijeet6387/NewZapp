@@ -86,7 +86,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h4 className="text-center" style={{ margin: "35px" }}>
+        <h4 className="text-center" style={{ margin: "30px" }}>
           NewZapp - Top Headlines
         </h4>
         {this.state.loading && <Spinner />}

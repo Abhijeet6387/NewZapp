@@ -10,7 +10,6 @@ export class Newsitem extends Component {
         <div
           className="card"
           style={{
-            height: "30%",
             // borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "black",
