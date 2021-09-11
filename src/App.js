@@ -8,6 +8,7 @@ export default class App extends Component {
   // name = "Abhijeet";
   //  name can be rendered using {this.name}
   pageSize = 8;
+  apiKey = process.env.REACT_APP_NEWS_API;
   render() {
     return (
       <div>
@@ -21,6 +22,7 @@ export default class App extends Component {
                 key="general"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="general"
               />
             </Route>
@@ -28,7 +30,7 @@ export default class App extends Component {
               <News
                 key="general"
                 pageSize={this.pageSize}
-                country="in"
+                country="in" apiKey={this.apiKey}
                 category="general"
               />
             </Route> */}
@@ -37,6 +39,7 @@ export default class App extends Component {
                 key="business"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="business"
               />
             </Route>
@@ -45,6 +48,7 @@ export default class App extends Component {
                 key="entertainment"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="entertainment"
               />
             </Route>
@@ -53,6 +57,7 @@ export default class App extends Component {
                 key="health"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="health"
               />
             </Route>
@@ -61,6 +66,7 @@ export default class App extends Component {
                 key="science"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="science"
               />
             </Route>
@@ -69,6 +75,7 @@ export default class App extends Component {
                 key="sports"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="sports"
               />
             </Route>
@@ -77,6 +84,7 @@ export default class App extends Component {
                 key="technology"
                 pageSize={this.pageSize}
                 country="in"
+                apiKey={this.apiKey}
                 category="technology"
               />
             </Route>
