@@ -109,14 +109,11 @@ export class News extends Component {
           style={{
             margin: "30px",
             textShadow: "2px 2px rgba(0,0,0,0.15)",
+            marginTop: "90px",
           }}
         >
-          NewZapp - Top{" "}
-          {" " +
-            this.props.category[0].toUpperCase() +
-            this.props.category.slice(1) +
-            " "}{" "}
-          Headlines
+          NewZapp - Top Headlines (
+          {this.props.category[0].toUpperCase() + this.props.category.slice(1)})
         </h4>
         {this.state.loading && <Spinner />}
         <div className="row">
