@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import React from "react";
 import loading from "./loading.gif";
 // converting class-based to functinal componenent
 // export class Spinner extends Component {
