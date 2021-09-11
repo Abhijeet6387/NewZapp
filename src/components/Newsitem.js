@@ -14,6 +14,16 @@ export class Newsitem extends Component {
             boxShadow: " 8px 8px 15px 0px rgba(0,0,0,0.09)",
           }}
         >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              position: "absolute",
+              right: "0",
+            }}
+          >
+            <span className="badge rounded-pill bg-danger">{source}</span>
+          </div>
           <img
             src={!imageUrl ? "unavailable.jpg" : imageUrl}
             className="card-img-top"
@@ -36,15 +46,14 @@ export class Newsitem extends Component {
             <hr /> */}
             <p className="card-text">{description}...</p>
             <p className="card-text">
-              <small className="text-muted">
-                {" "}
-                By {!author ? "Unknown" : author} on <br />
-                {new Date(date).toGMTString()}
+              <small className="text-danger">
+                <p>
+                  {" "}
+                  By {!author ? "Unknown" : author} on <br />
+                  {new Date(date).toGMTString()}
+                </p>
               </small>
             </p>
-            <span className="badge mb-3">
-              <i style={{ color: "gray" }}>-{source}</i>
-            </span>
             <a
               href={newsUrl}
               target="_blank"
