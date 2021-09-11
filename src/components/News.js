@@ -132,7 +132,7 @@ export class News extends Component {
                     // title={!element.title ? "" : element.title}
                     description={
                       element.description
-                        ? element.description.slice(0, 65)
+                        ? element.description.slice(0, 90)
                         : "Click on the Read More button below to get an insight of the news"
                     }
                     // description={

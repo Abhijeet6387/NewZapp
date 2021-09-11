@@ -24,14 +24,14 @@ export default class App extends Component {
                 category="general"
               />
             </Route>
-            <Route exact path="/general">
+            {/* <Route exact path="/general">
               <News
                 key="general"
                 pageSize={this.pageSize}
                 country="in"
                 category="general"
               />
-            </Route>
+            </Route> */}
             <Route exact path="/business">
               <News
                 key="business"
