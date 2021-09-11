@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
-
 export class News extends Component {
   // setting state using constructor
   static defaultProps = {
@@ -15,13 +14,16 @@ export class News extends Component {
     pageSize: PropTypes.number,
     category: PropTypes.string,
   };
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     };
+    document.title = `${
+      this.props.category[0].toUpperCase() + this.props.category.slice(1)
+    } - NewZapp`;
   }
 
   // creating function to render next and previous pages
