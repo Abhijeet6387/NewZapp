@@ -4,7 +4,7 @@ NewsZapp is a Single Page Application Website which can be used for the purpose 
 The website uses a RESTAPI (NEWSAPI) from where it fetches all the news as request by the user and then updates the webpage to show the corresponding result using the below mentioned Tech Stacks.
 <br><br>
 <hr>
-<p>Tech Stacks used in the project are :- </p>
+<p>Technologies used in the project are :- </p>
 <ol>
   <li> Reactjs
   <li> Bootstrap
