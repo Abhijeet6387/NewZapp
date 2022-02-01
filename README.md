@@ -14,6 +14,5 @@ The website uses a RESTAPI (NEWSAPI) from where it fetches all the news as reque
   <li> RestAPI - NEWSAPI
 </ol>
 
-Live at -
-
+![4](https://user-images.githubusercontent.com/66259889/151913740-2dd17b0b-fd16-4485-9f62-65c946928cda.png)
 Thanks for reading this!🙌🙌🙌
